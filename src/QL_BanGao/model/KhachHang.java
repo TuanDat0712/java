@@ -10,5 +10,58 @@ package QL_BanGao.model;
  * @author ADMIN
  */
 public class KhachHang {
+
+    public KhachHang(String MaKH, String TenKH, String DiaChi, String SDT, String Email) {
+        this.MaKH = MaKH;
+        this.TenKH = TenKH;
+        this.DiaChi = DiaChi;
+        this.SDT = SDT;
+        this.Email = Email;
+    }
+    String MaKH;
+    String TenKH;
+    String DiaChi;
+    String SDT;
+    String Email;
+
+    public String getMaKH() {
+        return MaKH;
+    }
+
+    public void setMaKH(String MaKH) {
+        this.MaKH = MaKH;
+    }
+
+    public String getTenKH() {
+        return TenKH;
+    }
+
+    public void setTenKH(String TenKH) {
+        this.TenKH = TenKH;
+    }
+
+    public String getDiaChi() {
+        return DiaChi;
+    }
+
+    public void setDiaChi(String DiaChi) {
+        this.DiaChi = DiaChi;
+    }
+
+    public String getSDT() {
+        return SDT;
+    }
+
+    public void setSDT(String SDT) {
+        this.SDT = SDT;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String Email) {
+        this.Email = Email;
+    }
     
 }

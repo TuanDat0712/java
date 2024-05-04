@@ -5,15 +5,23 @@
  */
 package QL_BanGao.model;
 
+import java.awt.List;
+import java.util.ArrayList;
+import java.sql.CallableStatement;
+import java.sql.PreparedStatement;
+
 /**
  *
  * @author ADMIN
  */
 public class KhachHang {
     
+    
     public KhachHang()
-    {};
+    {       
+    };
     public KhachHang(String MaKH, String TenKH, String DiaChi, String SDT, String Email) {
+      
         this.MaKH = MaKH;
         this.TenKH = TenKH;
         this.DiaChi = DiaChi;
@@ -25,7 +33,6 @@ public class KhachHang {
     String DiaChi;
     String SDT;
     String Email;
-
     public String getMaKH() {
         return MaKH;
     }

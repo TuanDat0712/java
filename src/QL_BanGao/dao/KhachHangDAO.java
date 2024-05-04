@@ -16,17 +16,20 @@ public class KhachHangDAO {
 
     public KhachHangDAO() {
     }
-    public int insertKH(KhachHang x)
+    Connectionn con = new Connectionn();
+   
+    public int themKH(KhachHang x)
     {
         int result = 0;
         try {
-            Connection con = new Connection();
-            con.Connect();
+            
+            con.open();
 
             // Chuẩn bị lời gọi cho stored procedure
-            String sql = "CALL themKhachHang(?, ?, ?, ?, ?)";
-            CallableStatement stmt = con.prepareCall(sql);
-
+            String sql = "{CALL themKhachHang(?, ?, ?, ?, ?)}";
+            CallableStatement stmt;
+            stmt = con.getConnection().prepareCall(sql);
+            
             // Truyền giá trị cho các tham số
             stmt.setString(1, x.getMaKH());
             stmt.setString(2, x.getTenKH());
@@ -34,14 +37,17 @@ public class KhachHangDAO {
             stmt.setString(4, x.getSDT());
             stmt.setString(5, x.getEmail());
 
-            // Thực thi stored procedure và lấy số lượng bản ghi bị ảnh hưởng
             result = stmt.executeUpdate();
             
             
         }
         catch(Exception e)
         {
+             e.printStackTrace();
         }
+        if(result != 0)
+        {
+         System.out.println("Lỗi xảy ra khi thêm khách hàng.");}
         return result;
     }
 }

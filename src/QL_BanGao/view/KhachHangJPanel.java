@@ -5,7 +5,9 @@
 package QL_BanGao.view;
 
 import QL_BanGao.model.KhachHang;
-
+import QL_BanGao.dao.KhachHangDAO;
+import javax.swing.JOptionPane;
+import QL_BanGao.dao.Connectionn;
 /**
  *
  * @author Le Van
@@ -33,7 +35,7 @@ public class KhachHangJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtKH = new javax.swing.JTextField();
+        txtMaKH = new javax.swing.JTextField();
         txtHoTen = new javax.swing.JTextField();
         txtDiaChi = new javax.swing.JTextField();
         txtSDT = new javax.swing.JTextField();
@@ -57,9 +59,9 @@ public class KhachHangJPanel extends javax.swing.JPanel {
 
         jLabel5.setText("Email:");
 
-        txtKH.addActionListener(new java.awt.event.ActionListener() {
+        txtMaKH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtKHActionPerformed(evt);
+                txtMaKHActionPerformed(evt);
             }
         });
 
@@ -115,7 +117,7 @@ public class KhachHangJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtHoTen, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtKH, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtMaKH, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtDiaChi))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -142,7 +144,7 @@ public class KhachHangJPanel extends javax.swing.JPanel {
                         .addGap(3, 3, 3)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(txtKH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtMaKH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -172,9 +174,9 @@ public class KhachHangJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKHActionPerformed
+    private void txtMaKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaKHActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtKHActionPerformed
+    }//GEN-LAST:event_txtMaKHActionPerformed
 
     private void txtDiaChiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDiaChiActionPerformed
         // TODO add your handling code here:
@@ -182,9 +184,19 @@ public class KhachHangJPanel extends javax.swing.JPanel {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
             // TODO add your handling code here:
+
         KhachHang x = new KhachHang();
-        
-        
+        x.setMaKH(txtMaKH.getText());
+        x.setDiaChi(txtDiaChi.getText());
+        x.setEmail(txtEmail.getText());
+        x.setSDT(txtSDT.getText());
+        x.setTenKH(txtHoTen.getText());
+        KhachHangDAO s = new KhachHangDAO();
+       int n = s.themKH(x);
+       if(n != 0)
+           JOptionPane.showMessageDialog(null, "oke");  
+       else
+           JOptionPane.showMessageDialog(null, "lỗi");
     }//GEN-LAST:event_btnThemActionPerformed
 
 
@@ -202,7 +214,7 @@ public class KhachHangJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtDiaChi;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtHoTen;
-    private javax.swing.JTextField txtKH;
+    private javax.swing.JTextField txtMaKH;
     private javax.swing.JTextField txtSDT;
     // End of variables declaration//GEN-END:variables
 }

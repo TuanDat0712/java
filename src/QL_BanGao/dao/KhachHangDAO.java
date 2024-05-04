@@ -8,6 +8,8 @@ import QL_BanGao.model.KhachHang;
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.*;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author ADMIN
@@ -26,7 +28,7 @@ public class KhachHangDAO {
             con.open();
 
             // Chuẩn bị lời gọi cho stored procedure
-            String sql = "{CALL themKhachHang(?, ?, ?, ?, ?)}o";
+            String sql = "{CALL themKhachHang(?, ?, ?, ?, ?)}";
             CallableStatement stmt;
             stmt = con.getConnection().prepareCall(sql);
             
@@ -37,9 +39,7 @@ public class KhachHangDAO {
             stmt.setString(4, x.getSDT());
             stmt.setString(5, x.getEmail());
 
-            result = stmt.executeUpdate();
-            
-            
+            result = stmt.executeUpdate(); 
         }
         catch(Exception e)
         {
@@ -48,6 +48,34 @@ public class KhachHangDAO {
         if(result != 0)
         {
          System.out.println("Lỗi xảy ra khi thêm khách hàng.");}
+        con.close();
         return result;
     }
+    
+    public ArrayList<KhachHang> getListKH() {
+    ArrayList<KhachHang> listKh = new ArrayList<>();
+    String sql = "{CALL xuatKhachHang}";
+    con.open();
+    try {
+        CallableStatement stmt = con.getConnection().prepareCall(sql);
+        ResultSet rs = stmt.executeQuery(); 
+
+        while (rs.next()) { 
+            KhachHang k = new KhachHang();
+            k.setMaKH(rs.getString("MaKH"));
+            k.setTenKH(rs.getString("TenKH"));
+            k.setDiaChi(rs.getString("DiaChi"));
+            k.setSDT(rs.getString("SDT"));
+            k.setEmail(rs.getString("Email"));
+            listKh.add(k);
+        }
+        rs.close(); 
+    } catch (Exception e) {
+        e.printStackTrace();
+    } 
+        con.close(); 
+    
+    return listKh;
+}
+
 }

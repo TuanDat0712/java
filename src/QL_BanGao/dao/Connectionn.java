@@ -9,8 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Connectionn {
-   
-    ///
+
     public Connection getConnection() {
         return connection;
     }
@@ -68,9 +67,5 @@ public class Connectionn {
         }
         return n;
     }
-    
-    ///
-    
 
-    
 }

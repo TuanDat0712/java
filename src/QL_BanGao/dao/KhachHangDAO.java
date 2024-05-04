@@ -26,7 +26,7 @@ public class KhachHangDAO {
             con.open();
 
             // Chuẩn bị lời gọi cho stored procedure
-            String sql = "{CALL themKhachHang(?, ?, ?, ?, ?)}";
+            String sql = "{CALL themKhachHang(?, ?, ?, ?, ?)}o";
             CallableStatement stmt;
             stmt = con.getConnection().prepareCall(sql);
             

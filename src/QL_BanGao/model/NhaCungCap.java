@@ -14,6 +14,9 @@ public class NhaCungCap {
     String TenNCC;
     String DiaChi;
     String Email;
+    
+    public NhaCungCap() {
+    }
 
     public NhaCungCap(String MaNCC, String TenNCC, String DiaChi, String Email) {
         this.MaNCC = MaNCC;

@@ -23,6 +23,9 @@ public class NhanVien {
     String SDT;
     String Email;
 
+    public NhanVien() {
+    }
+
     public String getMaNV() {
         return MaNV;
     }

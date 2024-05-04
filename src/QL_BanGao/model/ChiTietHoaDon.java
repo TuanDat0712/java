@@ -18,6 +18,9 @@ public class ChiTietHoaDon {
     String DonVi;
     float ThanhTien;
 
+    public ChiTietHoaDon() {
+    }
+
     public String getMaCTHD() {
         return MaCTHD;
     }

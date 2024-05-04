@@ -22,10 +22,20 @@ public class KhachHangDAO {
         try {
             Connection con = new Connection();
             con.Connect();
-            String sql = "Execute themKhachHang @MaKH = ?, @TenKH = ?,@DiaChi = ?,@SDT = ?,@Email =?";
-            PreparedStatement pst = (PreparedStatement) con.prepareStatement(sql);
-            pst.setString(1,x.getMaKH());
-            pst.setString(2, x.getTenKH());
+
+            // Chuẩn bị lời gọi cho stored procedure
+            String sql = "CALL themKhachHang(?, ?, ?, ?, ?)";
+            CallableStatement stmt = con.prepareCall(sql);
+
+            // Truyền giá trị cho các tham số
+            stmt.setString(1, x.getMaKH());
+            stmt.setString(2, x.getTenKH());
+            stmt.setString(3, x.getDiaChi());
+            stmt.setString(4, x.getSDT());
+            stmt.setString(5, x.getEmail());
+
+            // Thực thi stored procedure và lấy số lượng bản ghi bị ảnh hưởng
+            result = stmt.executeUpdate();
             
             
         }

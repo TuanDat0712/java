@@ -1,5 +1,6 @@
 package QL_BanGao.dao;
 
+import java.sql.CallableStatement;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
@@ -10,14 +11,18 @@ public class Connection {
       public static String pass ="123";
       public static Connection conn;
       Statement statement = null;
-      public boolean Connect()
+      public Connection Connect()
       {
           try {
               conn = (Connection) DriverManager.getConnection(url, user,pass);
+              return conn;
            
-              return true;
           } catch (Exception e) {
-              return false;
+               return null;
           }
       }
+
+    CallableStatement prepareCall(String sql) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -10,6 +10,9 @@ package QL_BanGao.model;
  * @author ADMIN
  */
 public class LoaiGao {
+
+    public LoaiGao() {
+    }
     
     String MaHG;
     String TenHangGao;

@@ -14,6 +14,9 @@ public class HangGao {
    String TenHangGao;
    String MaNCC;
 
+    public HangGao() {
+    }
+
     public HangGao(String MaHG, String TenHangGao, String MaNCC) {
         this.MaHG = MaHG;
         this.TenHangGao = TenHangGao;

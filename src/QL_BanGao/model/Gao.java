@@ -22,6 +22,9 @@ public class Gao {
     String MaHG;
     String LinkImage;
 
+    public Gao() {
+    }
+
     public String getMAG() {
         return MAG;
     }

@@ -15,6 +15,9 @@ public class TaiKhoan {
     String MaNV;
     int CapQuyen;
 
+    public TaiKhoan() {
+    }
+
     public TaiKhoan(String TenTK, String MatKhau, String MaNV, int CapQuyen) {
         this.TenTK = TenTK;
         this.MatKhau = MatKhau;

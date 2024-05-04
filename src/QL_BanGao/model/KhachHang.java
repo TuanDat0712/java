@@ -10,7 +10,9 @@ package QL_BanGao.model;
  * @author ADMIN
  */
 public class KhachHang {
-
+    
+    public KhachHang()
+    {};
     public KhachHang(String MaKH, String TenKH, String DiaChi, String SDT, String Email) {
         this.MaKH = MaKH;
         this.TenKH = TenKH;

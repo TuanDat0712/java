@@ -16,6 +16,9 @@ public class HoaDon {
     String NgayLapHoaDon;
     Float ThanhTien;
 
+    public HoaDon() {
+    }
+
     public HoaDon(String MaHD, String MaNV, String MaKH, String NgayLapHoaDon, Float ThanhTien) {
         this.MaHD = MaHD;
         this.MaNV = MaNV;

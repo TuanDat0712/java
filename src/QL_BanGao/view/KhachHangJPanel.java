@@ -206,7 +206,10 @@ public class KhachHangJPanel extends javax.swing.JPanel {
     private void txtDiaChiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDiaChiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDiaChiActionPerformed
-    
+    //Hàm kiểm tra email sẵn của java.
+    //SDT phải là 10 số.
+    //mã kh phải tự tăng
+    //
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
             // TODO add your handling code here:
 

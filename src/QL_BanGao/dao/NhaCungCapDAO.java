@@ -1,43 +1,39 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package QL_BanGao.dao;
-import QL_BanGao.model.KhachHang;
+
+import QL_BanGao.model.NhaCungCap;
 import java.sql.CallableStatement;
-import java.sql.PreparedStatement;
-import java.sql.*;
+import java.sql.ResultSet;
 import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
+
 /**
  *
- * @author ADMIN
+ * @author Le Van
  */
-public class KhachHangDAO {
-
-    public KhachHangDAO() {
+public class NhaCungCapDAO {
+    public NhaCungCapDAO(){
+        
     }
     Connectionn con = new Connectionn();
-   
-    public int themKH(KhachHang x)
+    public int themNhaCungCap(NhaCungCap x)
     {
         int result = 0;
         try {
             
             con.open();
             // Chuẩn bị lời gọi cho stored procedure
-            String sql = "{CALL themKhachHang(?, ?, ?, ?, ?)}";
+            String sql = "{CALL themNhaCungCap(?, ?, ?, ?)}";
             CallableStatement stmt;
             stmt = con.getConnection().prepareCall(sql);
             
             // Truyền giá trị cho các tham số
-            stmt.setString(1, x.getMaKH());
-            stmt.setString(2, x.getTenKH());
+            stmt.setString(1, x.getMaNCC());
+            stmt.setString(2, x.getTenNCC());
             stmt.setString(3, x.getDiaChi());
-            stmt.setString(4, x.getSDT());
             stmt.setString(5, x.getEmail());
-
             result = stmt.executeUpdate(); 
         }
         catch(Exception e)
@@ -46,25 +42,24 @@ public class KhachHangDAO {
         }
         if(result != 0)
         {
-         System.out.println("Lỗi xảy ra khi thêm khách hàng.");}
+         System.out.println("Lỗi xảy ra khi thêm nhà cung cấp.");}
         con.close();
         return result;
     }
     
-    public ArrayList<KhachHang> getListKH() {
-    ArrayList<KhachHang> listKh = new ArrayList<>();
-    String sql = "{CALL xuatKhachHang}";
+    public ArrayList<NhaCungCap> getListNCC() {
+    ArrayList<NhaCungCap> listKh = new ArrayList<>();
+    String sql = "{CALL xuatNhaCungCap}";
     con.open();
     try {
         CallableStatement stmt = con.getConnection().prepareCall(sql);
         ResultSet rs = stmt.executeQuery(); 
 
         while (rs.next()) { 
-            KhachHang k = new KhachHang();
-            k.setMaKH(rs.getString("MaKH"));
-            k.setTenKH(rs.getString("TenKH"));
+            NhaCungCap k = new NhaCungCap();
+            k.setMaNCC(rs.getString("MaNCC"));
+            k.setTenNCC(rs.getString("TenNCC"));
             k.setDiaChi(rs.getString("DiaChi"));
-            k.setSDT(rs.getString("SDT"));
             k.setEmail(rs.getString("Email"));
             listKh.add(k);
         }
@@ -76,5 +71,4 @@ public class KhachHangDAO {
     
     return listKh;
 }
-
 }

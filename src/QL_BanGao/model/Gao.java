@@ -11,19 +11,16 @@ package QL_BanGao.model;
  */
 public class Gao {
     
-     String MAG;
+    String MAG;
     String  MALG;
+    String MaNCC;
     String DacDiemBenNgoai;
     String DoThom;
     String TinhChatCom;
     int SoLuong;
     float GiaBan;
     float GiaNhap;
-    String MaHG;
     String LinkImage;
-
-    public Gao() {
-    }
 
     public String getMAG() {
         return MAG;
@@ -39,6 +36,14 @@ public class Gao {
 
     public void setMALG(String MALG) {
         this.MALG = MALG;
+    }
+
+    public String getMaNCC() {
+        return MaNCC;
+    }
+
+    public void setMaNCC(String MaNCC) {
+        this.MaNCC = MaNCC;
     }
 
     public String getDacDiemBenNgoai() {
@@ -89,14 +94,6 @@ public class Gao {
         this.GiaNhap = GiaNhap;
     }
 
-    public String getMaHG() {
-        return MaHG;
-    }
-
-    public void setMaHG(String MaHG) {
-        this.MaHG = MaHG;
-    }
-
     public String getLinkImage() {
         return LinkImage;
     }
@@ -104,17 +101,20 @@ public class Gao {
     public void setLinkImage(String LinkImage) {
         this.LinkImage = LinkImage;
     }
-    
-    public Gao(String MAG, String MALG, String DacDiemBenNgoai, String DoThom, String TinhChatCom, int SoLuong, float GiaBan, float GiaNhap, String MaHG, String LinkImage) {
+
+    public Gao(String MAG, String MALG, String MaNCC, String DacDiemBenNgoai, String DoThom, String TinhChatCom, int SoLuong, float GiaBan, float GiaNhap, String LinkImage) {
         this.MAG = MAG;
         this.MALG = MALG;
+        this.MaNCC = MaNCC;
         this.DacDiemBenNgoai = DacDiemBenNgoai;
         this.DoThom = DoThom;
         this.TinhChatCom = TinhChatCom;
         this.SoLuong = SoLuong;
         this.GiaBan = GiaBan;
         this.GiaNhap = GiaNhap;
-        this.MaHG = MaHG;
         this.LinkImage = LinkImage;
+    }
+
+    public Gao() {
     }
 }

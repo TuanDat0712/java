@@ -19,8 +19,7 @@ public class Connectionn {
     }
     private Connection connection;
     public void open()
-    {
-        
+    {     
          try {
             String user="sa";
             String pass="123";

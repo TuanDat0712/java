@@ -123,11 +123,11 @@ public class DangNhap extends javax.swing.JFrame {
         TaiKhoan tk1= tk.dangNhap(txtName.getText(),txtPass.getText());
         if (tk1==null)
         {
-            JOptionPane.showMessageDialog(null, "dang nhap that bai");
+            JOptionPane.showMessageDialog(null, "Dang nhap that bai");
 
         }
         else
-        {  JOptionPane.showMessageDialog(null, "dang nhap thanh cong");
+        {  JOptionPane.showMessageDialog(null, "Dang nhap thanh cong");
             MainJFrame show = new  MainJFrame();
             show.setVisible(true);
         }

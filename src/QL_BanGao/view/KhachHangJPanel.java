@@ -3,13 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package QL_BanGao.view;
-
+import QL_BanGao.dao.KhachHangDao;
 import QL_BanGao.model.KhachHang;
-import QL_BanGao.dao.KhachHangDAO;
-import javax.swing.JOptionPane;
-import QL_BanGao.dao.Connectionn;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Le Van
@@ -21,10 +19,10 @@ public class KhachHangJPanel extends javax.swing.JPanel {
      */
     public KhachHangJPanel() {
         initComponents();
+        
        ShowKh();
-       
     }
-
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -85,6 +83,11 @@ public class KhachHangJPanel extends javax.swing.JPanel {
         });
 
         jButton2.setText("Xóa");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Sửa");
 
@@ -198,11 +201,16 @@ public class KhachHangJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-    KhachHangDAO s = new KhachHangDAO();
+    
+    
+    //khai bao
+    KhachHangDao kh = new KhachHangDao();
     private void txtMaKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaKHActionPerformed
         // TODO add your handling code here:
+   
+        
     }//GEN-LAST:event_txtMaKHActionPerformed
-
+ 
     private void txtDiaChiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDiaChiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDiaChiActionPerformed
@@ -212,28 +220,36 @@ public class KhachHangJPanel extends javax.swing.JPanel {
     //
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
             // TODO add your handling code here:
-
-        KhachHang x = new KhachHang();
-        x.setMaKH(txtMaKH.getText());
-        x.setDiaChi(txtDiaChi.getText());
-        x.setEmail(txtEmail.getText());
-        x.setSDT(txtSDT.getText());
-        x.setTenKH(txtHoTen.getText());
-       
-       int n = s.themKH(x);
-       if(n != 0)
-           JOptionPane.showMessageDialog(null, "oke");  
-       else
-           JOptionPane.showMessageDialog(null, "lỗi");
-       //ShowKh();
+            KhachHang n = new KhachHang();
+        try {
+            if(txtMaKH.getText().isEmpty() || txtDiaChi.getText().isEmpty() || txtSDT.getText().isEmpty() || txtHoTen.getText().isEmpty() || txtEmail.getText().isEmpty() )
+            {
+                    JOptionPane.showMessageDialog(btnThem,"Thiếu thông tin");
+        
+            }
+            else
+            {
+                n.setTenKH(txtMaKH.getText());
+                    n.setDiaChi(txtDiaChi.getText());
+                    n.setMaKH(txtMaKH.getText());
+                    n.setSDT(txtSDT.getText());
+                int i  = kh.themKH(n);
+                if(i != 0)
+                    JOptionPane.showMessageDialog(btnThem,"OK");
+                else
+                    JOptionPane.showMessageDialog(btnThem,"Lỗi");
+            }
+        } catch (Exception e) {
+        }
+       ShowKh();
     }//GEN-LAST:event_btnThemActionPerformed
      
     public void ShowKh()
     {
-        ArrayList<KhachHang> kh = s.getListKH();
+        ArrayList<KhachHang> Lks = kh.getListKH();
          String []header={"MaKH","TenKH","DiaChi","SDT","Email"};
         DefaultTableModel model = new DefaultTableModel(header,0);
-        for(KhachHang k : kh)
+        for(KhachHang k : Lks)
         {
             model.addRow(new Object[]{k.getMaKH(),k.getTenKH(),k.getDiaChi(),k.getSDT(),k.getEmail()});
         }
@@ -243,6 +259,10 @@ public class KhachHangJPanel extends javax.swing.JPanel {
     private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnThoatActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

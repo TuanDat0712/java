@@ -22,16 +22,17 @@ public class TAIKHOANDAO {
     }
     Connectionn con = new Connectionn();
     public TaiKhoan dangNhap(String tenTK, String matKhau) {
+        //TaiKhoan taiKhoan = null;
+        //ResultSet rs = null;
         TaiKhoan taiKhoan = null;
-        ResultSet rs = null;
         try {
             con.open();
-            String sql = "SELECT * FROM TaiKhoan WHERE TenTK = ? AND MatKhau = ?";
+            String sql = "{CALL checkTaiKhoan(?, ?)}";
             CallableStatement stmt;
             stmt = con.getConnection().prepareCall(sql);
             stmt.setString(1, tenTK);
             stmt.setString(2, matKhau);
-            rs = stmt.executeQuery();
+            ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 taiKhoan = new TaiKhoan();
                 taiKhoan.setTenTK(rs.getString("TenTK"));

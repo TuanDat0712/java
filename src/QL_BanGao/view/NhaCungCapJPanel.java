@@ -4,6 +4,11 @@
  */
 package QL_BanGao.view;
 
+import QL_BanGao.model.NhaCungCap;
+import QL_BanGao.dao.NhaCungCapDAO;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Le Van
@@ -15,6 +20,7 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
      */
     public NhaCungCapJPanel() {
         initComponents();
+        showNCC();
     }
 
     /**
@@ -42,7 +48,7 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTNCC = new javax.swing.JTable();
         btnLuu = new javax.swing.JButton();
 
         jLabel1.setText("Mã NCC:");
@@ -81,7 +87,7 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
 
         jButton3.setText("Sửa");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTNCC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -92,7 +98,7 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(jTNCC);
 
         btnLuu.setText("Lưu");
 
@@ -129,10 +135,11 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
                             .addComponent(jTextField5)
                             .addComponent(jTextField4)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnLuu)
-                        .addGap(0, 172, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
@@ -209,7 +216,20 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    NhaCungCapDAO ncc = new NhaCungCapDAO();
+    public void showNCC()
+    {
+         ArrayList<NhaCungCap> LNCC = ncc.getListNCC();
+         String []header={"MaNCC","TenNCC","DiaChi","Email"};
+        DefaultTableModel model = new DefaultTableModel(header,0);
+        for(NhaCungCap k : LNCC)
+        {
+            model.addRow(new Object[]{k.getMaNCC(),k.getTenNCC(),k.getDiaChi(),k.getEmail()});
+        }
+        
+        jTNCC.setModel(model);
+    }
+    
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
@@ -236,7 +256,7 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTNCC;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

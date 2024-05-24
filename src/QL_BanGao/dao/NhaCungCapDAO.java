@@ -48,7 +48,7 @@ public class NhaCungCapDAO {
     }
     
     public ArrayList<NhaCungCap> getListNCC() {
-    ArrayList<NhaCungCap> listKh = new ArrayList<>();
+    ArrayList<NhaCungCap> listNCC = new ArrayList<>();
     String sql = "{CALL xuatNhaCungCap}";
     con.open();
     try {
@@ -61,7 +61,7 @@ public class NhaCungCapDAO {
             k.setTenNCC(rs.getString("TenNCC"));
             k.setDiaChi(rs.getString("DiaChi"));
             k.setEmail(rs.getString("Email"));
-            listKh.add(k);
+            listNCC.add(k);
         }
         rs.close(); 
     } catch (Exception e) {
@@ -69,6 +69,7 @@ public class NhaCungCapDAO {
     } 
         con.close(); 
     
-    return listKh;
+    return listNCC;
 }
+    
 }

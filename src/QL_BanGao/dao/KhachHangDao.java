@@ -45,20 +45,54 @@ public class KhachHangDao {
         return result;
     }
     
-    public int xoaKH(KhachHang x)
+     public int updateKH(KhachHang x)
     {
         int result = 0;
         try {
+            
             con.open();
-            String sql = "{call xoaKhachHang(?)}";
+            // Chuẩn bị lời gọi cho stored procedure
+            String sql = "{CALL updateKH(?, ?, ?)}";
             CallableStatement stmt;
             stmt = con.getConnection().prepareCall(sql);
-            stmt.setString(1,x.getMaKH());
-        } catch (Exception e) {
             
+            // Truyền giá trị cho các tham số
+            stmt.setString(1, x.getMaKH());
+            stmt.setString(2, x.getTenKH());
+            stmt.setString(3, x.getDiaChi());
+  
+
+            result = stmt.executeUpdate(); 
         }
+        catch(SQLException e)
+        {
+        }
+        if(result != 0)
+        {
+         System.out.println("Lỗi xảy ra khi update khách hàng.");}
+        con.close();
         return result;
     }
+        public int xoaKH(String x)
+        {
+        int result = 0;
+        CallableStatement stmt = null;
+        try {
+            // Mở kết nối
+            con.open(); // Nếu 'con' là một đối tượng kết nối, không cần mở nó một cách tường minh
+            // Chuẩn bị câu lệnh gọi thủ tục
+            String sql = "{call xoaKhachHang(?)}";
+            stmt = con.getConnection().prepareCall(sql);
+            stmt.setString(1, x);
+
+            // Thực thi câu lệnh
+            result = stmt.executeUpdate();
+
+        } catch (Exception e) {
+            // Xử lý lỗi
+            e.printStackTrace();}
+        return result;
+        }
     
     public ArrayList<KhachHang> getListKH() {
     ArrayList<KhachHang> listKh = new ArrayList<>();
@@ -83,4 +117,62 @@ public class KhachHangDao {
     
     return listKh;
 }
+    
+    
+    public ArrayList<KhachHang> findKH(String SDT) {
+    ArrayList<KhachHang> listKh = new ArrayList<>();
+    String sql = "{CALL TimKhachHangTheoSDTLike(?)}";
+    con.open();
+    try {
+        CallableStatement stmt = con.getConnection().prepareCall(sql);
+        stmt.setString(1,SDT);
+        try (ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                KhachHang k = new KhachHang();
+                k.setMaKH(rs.getString("MaKH"));
+                k.setTenKH(rs.getString("TenKH"));
+                k.setDiaChi(rs.getString("DiaChi"));
+                k.setSDT(rs.getString("SDT"));
+                k.setEmail(rs.getString("Email"));
+                listKh.add(k);
+            }
+        }
+    } catch (SQLException e) {
+    } 
+        con.close(); 
+    
+    return listKh;
 }
+    
+    
+    public String phatsinhMaKH()
+   {
+       String makh="";
+       con.open();
+       if(con!=null)
+       {
+           String sql = "{CALL GetMaKH()}";
+        try (CallableStatement stmt = con.getConnection().prepareCall(sql)) {
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                String ma = rs.getString("MaKH");
+                String so = ma.substring(2,ma.length()); 
+               if(Integer.parseInt(so)>=0&&Integer.parseInt(so)<=9)
+                   makh="KH"+"00"+(Integer.parseInt(so)+1);
+               else
+                   if(Integer.parseInt(so)>=10&&Integer.parseInt(so)<=99)
+                       makh="KH"+"0"+(Integer.parseInt(so)+1);
+               else
+                       makh="KH"+(Integer.parseInt(so)+1);
+        }
+    }      catch (SQLException ex) {    
+           }
+       }
+       
+        return makh;
+   }
+    
+    
+}
+
+

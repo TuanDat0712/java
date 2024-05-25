@@ -7,7 +7,8 @@ import QL_BanGao.view.TrangChuJPanel;
 import QL_BanGao.view.KhachHangJPanel;
 import QL_BanGao.bean.Menu;
 import QL_BanGao.view.GaoJPanel;
-import QL_BanGao.view.HoaDonJPanel;
+import QL_BanGao.view.HoaDonBanJPanel;
+import QL_BanGao.view.HoaDonNhap;
 import QL_BanGao.view.NhaCungCapJPanel;
 import QL_BanGao.view.NhanVienJPanel;
 import QL_BanGao.view.TaiKhoanJPanel;
@@ -63,7 +64,7 @@ public class MenuController {
                     node = new GaoJPanel();
                     break;
                 case "HoaDon":
-                    node = new HoaDonJPanel();
+                    node = new HoaDonBanJPanel();
                     break;
                 case "KhachHang":
                     node = new KhachHangJPanel();
@@ -76,6 +77,9 @@ public class MenuController {
                     break;
                 case "TaiKhoan":
                     node = new TaiKhoanJPanel();
+                    break;
+                case "NhapHang":
+                    node = new HoaDonNhap();
                     break;
                 case "ThongKe":
                     node = new ThongKeJPanel();

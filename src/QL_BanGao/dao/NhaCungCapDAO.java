@@ -25,7 +25,7 @@ public class NhaCungCapDAO {
         try {
             
             con.open();
-            String sql = "{CALL themNhaCungCap(?, ?, ?, ?)}";
+            String sql = "{CALL themNhaCungCap(?, ?, ?, ?,?)}";
             CallableStatement stmt;
             stmt = con.getConnection().prepareCall(sql);
             

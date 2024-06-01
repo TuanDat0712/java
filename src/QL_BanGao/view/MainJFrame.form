@@ -226,6 +226,9 @@
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jpnHoaDon">
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jpnHoaDonMouseClicked"/>
+              </Events>
 
               <Layout>
                 <DimensionLayout dim="0">

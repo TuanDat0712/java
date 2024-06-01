@@ -14,38 +14,27 @@ public class LoaiGao {
     public LoaiGao() {
     }
     
-    String MaHG;
-    String TenHangGao;
-    String MaNCC;
+    String MaLG;
+    String TenLoaiGao;
 
-    public LoaiGao(String MaHG, String TenHangGao, String MaNCC) {
-        this.MaHG = MaHG;
-        this.TenHangGao = TenHangGao;
-        this.MaNCC = MaNCC;
+    public LoaiGao(String MaLG, String TenLoaiGao) {
+        this.MaLG = MaLG;
+        this.TenLoaiGao = TenLoaiGao;
     }
 
-    public String getMaHG() {
-        return MaHG;
+    public String getMaLG() {
+        return MaLG;
     }
 
-    public void setMaHG(String MaHG) {
-        this.MaHG = MaHG;
+    public void setMaLG(String MaLG) {
+        this.MaLG = MaLG;
     }
 
-    public String getTenHangGao() {
-        return TenHangGao;
+    public String getTenLoaiGao() {
+        return TenLoaiGao;
     }
 
-    public void setTenHangGao(String TenHangGao) {
-        this.TenHangGao = TenHangGao;
-    }
-
-    public String getMaNCC() {
-        return MaNCC;
-    }
-
-    public void setMaNCC(String MaNCC) {
-        this.MaNCC = MaNCC;
-    }
-    
+    public void setTenLoaiGao(String TenLoaiGao) {
+        this.TenLoaiGao = TenLoaiGao;
+    } 
 }

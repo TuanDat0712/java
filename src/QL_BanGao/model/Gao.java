@@ -14,9 +14,7 @@ public class Gao {
     String MAG;
     String  MALG;
     String MaNCC;
-    String DacDiemBenNgoai;
-    String DoThom;
-    String TinhChatCom;
+    String Mota;
     int SoLuong;
     float GiaBan;
     float GiaNhap;
@@ -46,29 +44,17 @@ public class Gao {
         this.MaNCC = MaNCC;
     }
 
-    public String getDacDiemBenNgoai() {
-        return DacDiemBenNgoai;
+    public String getMota() {
+        return Mota;
     }
 
-    public void setDacDiemBenNgoai(String DacDiemBenNgoai) {
-        this.DacDiemBenNgoai = DacDiemBenNgoai;
+    public void setMota(String Mota) {
+        this.Mota = Mota;
     }
 
-    public String getDoThom() {
-        return DoThom;
-    }
+    
 
-    public void setDoThom(String DoThom) {
-        this.DoThom = DoThom;
-    }
-
-    public String getTinhChatCom() {
-        return TinhChatCom;
-    }
-
-    public void setTinhChatCom(String TinhChatCom) {
-        this.TinhChatCom = TinhChatCom;
-    }
+   
 
     public int getSoLuong() {
         return SoLuong;
@@ -102,13 +88,11 @@ public class Gao {
         this.LinkImage = LinkImage;
     }
 
-    public Gao(String MAG, String MALG, String MaNCC, String DacDiemBenNgoai, String DoThom, String TinhChatCom, int SoLuong, float GiaBan, float GiaNhap, String LinkImage) {
+    public Gao(String MAG, String MALG, String MaNCC, String MoTa, int SoLuong, float GiaBan, float GiaNhap, String LinkImage) {
         this.MAG = MAG;
         this.MALG = MALG;
         this.MaNCC = MaNCC;
-        this.DacDiemBenNgoai = DacDiemBenNgoai;
-        this.DoThom = DoThom;
-        this.TinhChatCom = TinhChatCom;
+        this.Mota = MoTa;
         this.SoLuong = SoLuong;
         this.GiaBan = GiaBan;
         this.GiaNhap = GiaNhap;

@@ -133,6 +133,12 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap(10, Short.MAX_VALUE))
         );
 
+        jpnHoaDon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jpnHoaDonMouseClicked(evt);
+            }
+        });
+
         jlbHoaDon.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jlbHoaDon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlbHoaDon.setText("Hóa Đơn");
@@ -336,6 +342,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jpnHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpnHoaDonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jpnHoaDonMouseClicked
 
     /**
      * @param args the command line arguments

@@ -45,31 +45,27 @@ public class KhachHangDao {
         return result;
     }
     
-     public int updateKH(KhachHang x)
+     public int updateKH(String ma,String ten,String diachi)
     {
         int result = 0;
         try {
             
             con.open();
             // Chuẩn bị lời gọi cho stored procedure
-            String sql = "{CALL updateKH(?, ?, ?)}";
+            String sql = "{CALL updateKhachHang(?, ?, ?)}";
             CallableStatement stmt;
             stmt = con.getConnection().prepareCall(sql);
             
             // Truyền giá trị cho các tham số
-            stmt.setString(1, x.getMaKH());
-            stmt.setString(2, x.getTenKH());
-            stmt.setString(3, x.getDiaChi());
-  
-
+            stmt.setString(1, ma);
+            stmt.setString(2, ten);
+            stmt.setString(3, diachi);
             result = stmt.executeUpdate(); 
         }
         catch(SQLException e)
         {
+            e.printStackTrace();
         }
-        if(result != 0)
-        {
-         System.out.println("Lỗi xảy ra khi update khách hàng.");}
         con.close();
         return result;
     }

@@ -350,7 +350,7 @@ public class KhachHangJPanel extends javax.swing.JPanel {
             else
             {
                 n.setEmail(txtEmail.getText());
-                n.setTenKH(txtMaKH.getText());
+                n.setTenKH(txtHoTen.getText());
                 n.setDiaChi(txtDiaChi.getText());
                 n.setMaKH(txtMaKH.getText());
                 n.setSDT(txtSDT.getText());
@@ -372,49 +372,27 @@ public class KhachHangJPanel extends javax.swing.JPanel {
        ShowKh();
        //return lKH;
     }
-    public void updateKH()
+    public void updateKH2()
     {
-         JtKhachHang.setRowSelectionAllowed(false);
-         JtKhachHang.setColumnSelectionAllowed(false);
-            KhachHang n = new KhachHang();
             try {
-            if(txtDiaChi.getText().isEmpty() || txtSDT.getText().isEmpty() || txtHoTen.getText().isEmpty() || txtEmail.getText().isEmpty() )
+            if(txtDiaChi.getText().isEmpty() ||  txtHoTen.getText().isEmpty() )
             {
                     JOptionPane.showMessageDialog(btnSua,"Thiếu thông tin");
                     batTXT();
             }
-            else if(!ktraEmail(txtEmail.getText()))
-            {
-                JOptionPane.showMessageDialog(btnThoat,"Sai email");
-                batTXT();
-            }
-            else if(!ktraSDT(txtSDT.getText()) && !isSoDienThoaiTrung(txtSDT.getText()))
-            { JOptionPane.showMessageDialog(btnThoat, "Sai số điện thoại");
-                batTXT();
-            }
-            else if(isSoDienThoaiTrung(txtSDT.getText()))
-            { JOptionPane.showMessageDialog(btnThoat, "Trùng số điện thoại");
-                batTXT();
-            }
-            else if(isEmail(txtEmail.getText()))
-            { JOptionPane.showMessageDialog(btnThoat, "Trùng Email");
-                batTXT();
-            }
+           
             else
             {
-                n.setEmail(txtEmail.getText());
-                n.setTenKH(txtMaKH.getText());
-                n.setDiaChi(txtDiaChi.getText());
-                n.setMaKH(txtMaKH.getText());
-                n.setSDT(txtSDT.getText());
-                //lKH.add(n);
-                int i = kh.updateKH(n);
+                int i = kh.updateKH(txtMaKH.getText(),txtHoTen.getText(),txtDiaChi.getText());
                 if(i != 0)
                 {
                     JOptionPane.showMessageDialog(btnThoat, "Cập nhật thành công");
+                    btnSua.setEnabled(false);
+                    btnThoat.setEnabled(false);
+                    btnThem.setEnabled(true);
                     btnSua.setEnabled(true);
                     btnXoa.setEnabled(true);
-                    tat();
+                    
                 } 
                 else
                     JOptionPane.showMessageDialog(btnThoat,"Cập nhật thất bại");
@@ -477,7 +455,6 @@ public class KhachHangJPanel extends javax.swing.JPanel {
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-        KhachHang n = new KhachHang();
         try 
        {
              if(txtMaKH.getText().isEmpty())
@@ -498,7 +475,7 @@ public class KhachHangJPanel extends javax.swing.JPanel {
                 }
                 } catch (Exception e) {
         }
-               
+            clearTXT();
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
@@ -511,7 +488,8 @@ public class KhachHangJPanel extends javax.swing.JPanel {
              }
              else
              {
-                updateKH();
+                updateKH2();
+                JtKhachHang.setEnabled(true);
              }
           
                 JtKhachHang.setRowSelectionAllowed(true);
@@ -557,12 +535,15 @@ public class KhachHangJPanel extends javax.swing.JPanel {
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
+        JtKhachHang.setEnabled(false);
             btnThem.setEnabled(false);
             btnXoa.setEnabled(false);
             btnLuu.setEnabled(true);
             btnThoat.setEnabled(true);
             flag = 2;
-            batTXT();          
+            batTXT();      
+            txtEmail.setEnabled(false);
+            txtSDT.setEnabled(false);
     }//GEN-LAST:event_btnSuaActionPerformed
 
     

@@ -18,6 +18,7 @@ public class ChiTietPhieuNhap {
     String MaPN;
     String MaG;
     int SoLuong;
+    int giaNhap;
     int ThanTien;
 
     public String getMaCTPN() {
@@ -52,6 +53,14 @@ public class ChiTietPhieuNhap {
         this.SoLuong = SoLuong;
     }
 
+    public int getGiaNhap() {
+        return giaNhap;
+    }
+
+    public void setGiaNhap(int giaNhap) {
+        this.giaNhap = giaNhap;
+    }
+
     public int getThanTien() {
         return ThanTien;
     }
@@ -60,15 +69,18 @@ public class ChiTietPhieuNhap {
         this.ThanTien = ThanTien;
     }
 
-    public ChiTietPhieuNhap(String MaCTPN, String MaPN, String MaG, int SoLuong, int ThanTien) {
+    public ChiTietPhieuNhap(String MaCTPN, String MaPN, String MaG, int SoLuong, int giaNhap, int ThanTien) {
         this.MaCTPN = MaCTPN;
         this.MaPN = MaPN;
         this.MaG = MaG;
         this.SoLuong = SoLuong;
+        this.giaNhap = giaNhap;
         this.ThanTien = ThanTien;
     }
 
     public ChiTietPhieuNhap() {
     }
+
+    
     
 }

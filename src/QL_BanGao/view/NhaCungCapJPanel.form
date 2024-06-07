@@ -63,8 +63,8 @@
                                   </Group>
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtEmail" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtSDT" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtEmail" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
+                                      <Component id="txtSDT" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
                                       <Component id="lblLoiSDT" alignment="0" max="32767" attributes="0"/>
                                       <Component id="lblLoiEmail" alignment="0" max="32767" attributes="0"/>
                                   </Group>

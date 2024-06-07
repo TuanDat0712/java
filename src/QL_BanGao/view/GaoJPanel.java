@@ -46,16 +46,16 @@ public class GaoJPanel extends javax.swing.JPanel {
     public void clearTXT()
     {   
         txtDD.setText("");
-        txtGiaBan.setText("");
         txtGiaNhap.setText("");
+        txtGiaBan.setText("");
         txtMaGao.setText("");
         txtSL.setText("");
         txtIMG.setText("");
     }
     public void tatTxt() {
         txtMaGao.setEnabled(false);
-        txtGiaBan.setEnabled(false);
         txtGiaNhap.setEnabled(false);
+        txtGiaBan.setEnabled(false);
         cbMaLG.setEnabled(false);
         cbMaNCC.setEnabled(false);
         txtDD.setEnabled(false);
@@ -68,8 +68,8 @@ public class GaoJPanel extends javax.swing.JPanel {
     int flag = 0;
 
     public void batTxt() {
-        txtGiaBan.setEnabled(true);
         txtGiaNhap.setEnabled(true);
+        txtGiaBan.setEnabled(true);
         cbMaLG.setEnabled(true);
         cbMaNCC.setEnabled(true);
         txtDD.setEnabled(true);
@@ -114,8 +114,8 @@ public class GaoJPanel extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         txtMaGao = new javax.swing.JTextField();
         txtSL = new javax.swing.JTextField();
-        txtGiaBan = new javax.swing.JTextField();
         txtGiaNhap = new javax.swing.JTextField();
+        txtGiaBan = new javax.swing.JTextField();
         cbMaNCC = new javax.swing.JComboBox<>();
         btnThem = new javax.swing.JButton();
         btnXoa = new javax.swing.JButton();
@@ -127,8 +127,8 @@ public class GaoJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDD = new javax.swing.JTextPane();
         cbMaLG = new javax.swing.JComboBox<>();
-        txtIMG = new javax.swing.JTextField();
         btn_Reload = new javax.swing.JButton();
+        txtIMG = new javax.swing.JLabel();
 
         jTGao.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -171,17 +171,6 @@ public class GaoJPanel extends javax.swing.JPanel {
             }
         });
 
-        txtGiaBan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtGiaBanActionPerformed(evt);
-            }
-        });
-        txtGiaBan.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtGiaBanKeyTyped(evt);
-            }
-        });
-
         txtGiaNhap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtGiaNhapActionPerformed(evt);
@@ -190,6 +179,17 @@ public class GaoJPanel extends javax.swing.JPanel {
         txtGiaNhap.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtGiaNhapKeyTyped(evt);
+            }
+        });
+
+        txtGiaBan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGiaBanActionPerformed(evt);
+            }
+        });
+        txtGiaBan.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtGiaBanKeyTyped(evt);
             }
         });
 
@@ -243,18 +243,14 @@ public class GaoJPanel extends javax.swing.JPanel {
             }
         });
 
-        txtIMG.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIMGActionPerformed(evt);
-            }
-        });
-
         btn_Reload.setText("Tải lại");
         btn_Reload.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_ReloadActionPerformed(evt);
             }
         });
+
+        txtIMG.setText("lblIMG");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -271,53 +267,51 @@ public class GaoJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel10)
-                                .addGap(60, 60, 60)
-                                .addComponent(txtMaGao))
+                                .addGap(37, 37, 37)
+                                .addComponent(txtMaGao, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel11)
                                     .addComponent(jLabel1))
-                                .addGap(44, 44, 44)
+                                .addGap(22, 22, 22)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbMaNCC, 0, 121, Short.MAX_VALUE)
-                                    .addComponent(cbMaLG, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(156, 156, 156)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
+                                    .addComponent(cbMaLG, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbMaNCC, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(138, 138, 138)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel7))
-                        .addGap(31, 31, 31)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel7)))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtGiaBan, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtSL, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtGiaNhap, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtIMG, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(98, 98, 98))
+                            .addComponent(txtGiaNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSL, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtGiaBan, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)
-                                .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(45, 45, 45)
-                                .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(41, 41, 41)
-                                .addComponent(btnLuu, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(42, 42, 42)
-                                .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtTim, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnTim)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btn_Reload))
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(86, 86, 86)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(12, 12, 12)
+                        .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(btnLuu, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtTim, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnTim)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_Reload))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(173, 173, 173)
+                        .addComponent(txtIMG)))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,7 +321,7 @@ public class GaoJPanel extends javax.swing.JPanel {
                     .addComponent(txtTim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnTim)
                     .addComponent(btn_Reload))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(txtMaGao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -336,46 +330,46 @@ public class GaoJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jLabel6)
-                    .addComponent(txtGiaBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbMaLG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtGiaNhap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbMaLG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(cbMaNCC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtGiaNhap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                    .addComponent(txtGiaBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(14, 14, 14)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnLuu, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtIMG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtIMG))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLuu, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
     public void them() {
         Gao tempt = new Gao();
         tempt.setMAG(txtMaGao.getText());
-        tempt.setGiaBan(Float.parseFloat(txtGiaBan.getText()));
-        tempt.setGiaNhap(Float.parseFloat(txtGiaNhap.getText()));
+        tempt.setGiaBan(Float.parseFloat(txtGiaNhap.getText()));
+        tempt.setGiaNhap(Float.parseFloat(txtGiaBan.getText()));
         tempt.setMALG((String) cbMaLG.getSelectedItem());
         tempt.setMaNCC((String) cbMaNCC.getSelectedItem());
         tempt.setMota(txtDD.getText());
         tempt.setLinkImage(txtIMG.getText());
         tempt.setSoLuong(Integer.parseInt(txtSL.getText()));
-        float gianhap = Float.parseFloat(txtGiaNhap.getText());
-        float giaban = Float.parseFloat(txtGiaBan.getText());
+        float gianhap = Float.parseFloat(txtGiaBan.getText());
+        float giaban = Float.parseFloat(txtGiaNhap.getText());
         if(gianhap < giaban)
         { int t = gDao.themGao(tempt);
         if (t != 0) {
@@ -394,13 +388,13 @@ public class GaoJPanel extends javax.swing.JPanel {
 
     }
 
-    private void txtGiaBanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGiaBanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtGiaBanActionPerformed
-
     private void txtGiaNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGiaNhapActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtGiaNhapActionPerformed
+
+    private void txtGiaBanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGiaBanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtGiaBanActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
@@ -414,7 +408,7 @@ public class GaoJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
          try 
        {
-             if(txtMaGao.getText().isEmpty() || txtGiaBan.getText().isEmpty())
+             if(txtMaGao.getText().isEmpty() || txtGiaNhap.getText().isEmpty())
                 JOptionPane.showMessageDialog(btnXoa,"Thiếu thông tin");
              else 
                 {
@@ -440,10 +434,10 @@ public class GaoJPanel extends javax.swing.JPanel {
     public void sua()
     {   
           
-      float gianhap = Float.parseFloat(txtGiaNhap.getText());
-      float giaban = Float.parseFloat(txtGiaBan.getText());
+      float gianhap = Float.parseFloat(txtGiaBan.getText());
+      float giaban = Float.parseFloat(txtGiaNhap.getText());
          try {
-            if(txtGiaBan.getText().isEmpty()|| txtGiaNhap.getText().isEmpty()||txtSL.getText().isEmpty())
+            if(txtGiaNhap.getText().isEmpty()|| txtGiaBan.getText().isEmpty()||txtSL.getText().isEmpty())
             {JOptionPane.showMessageDialog(btnXoa,"Thiếu thông tin");
             }
             else if(gianhap < giaban)
@@ -452,7 +446,7 @@ public class GaoJPanel extends javax.swing.JPanel {
             }
             else
             {
-                int kq = gDao.updateGao(txtMaGao.getText(), txtDD.getText(),Integer.parseInt(txtSL.getText()), Float.parseFloat(txtGiaBan.getText()), Float.parseFloat(txtGiaNhap.getText()));
+                int kq = gDao.updateGao(txtMaGao.getText(), txtDD.getText(),Integer.parseInt(txtSL.getText()), Float.parseFloat(txtGiaNhap.getText()), Float.parseFloat(txtGiaBan.getText()));
                   if(kq != 0)
                    {JOptionPane.showMessageDialog(btnXoa,"Update thành công");
                     showGao();
@@ -472,8 +466,8 @@ public class GaoJPanel extends javax.swing.JPanel {
         jTGao.setEnabled(false);
         flag = 2;
         txtDD.setEnabled(true);
-        txtGiaBan.setEnabled(true);
         txtGiaNhap.setEnabled(true);
+        txtGiaBan.setEnabled(true);
         txtSL.setEnabled(true);
         btnLuu.setEnabled(true);
         btnThoat.setEnabled(true);
@@ -512,8 +506,8 @@ public class GaoJPanel extends javax.swing.JPanel {
         if (vt != -1) {
             prGao = g.get(vt);
             txtDD.setText(prGao.getMota());
-            txtGiaBan.setText(Float.toString(prGao.getGiaBan()));
             txtGiaNhap.setText(Float.toString(prGao.getGiaBan()));
+            txtGiaBan.setText(Float.toString(prGao.getGiaBan()));
             cbMaLG.setSelectedItem(prGao.getMALG());
             cbMaNCC.setSelectedItem(prGao.getMaNCC());
             txtMaGao.setText(prGao.getMAG());
@@ -539,10 +533,6 @@ public class GaoJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnTimActionPerformed
 
-    private void txtIMGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIMGActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIMGActionPerformed
-
     private void txtSLKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSLKeyPressed
         // TODO add your handling code here:
 
@@ -555,19 +545,19 @@ public class GaoJPanel extends javax.swing.JPanel {
             evt.consume();
     }//GEN-LAST:event_txtSLKeyTyped
 
-    private void txtGiaBanKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtGiaBanKeyTyped
-        // TODO add your handling code here:
-        char c = evt.getKeyChar();
-        if (!Character.isDigit(c))
-            evt.consume();
-    }//GEN-LAST:event_txtGiaBanKeyTyped
-
     private void txtGiaNhapKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtGiaNhapKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         if (!Character.isDigit(c))
             evt.consume();
     }//GEN-LAST:event_txtGiaNhapKeyTyped
+
+    private void txtGiaBanKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtGiaBanKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c))
+            evt.consume();
+    }//GEN-LAST:event_txtGiaBanKeyTyped
 
     private void btn_ReloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ReloadActionPerformed
         // TODO add your handling code here:
@@ -602,7 +592,7 @@ public class GaoJPanel extends javax.swing.JPanel {
     private javax.swing.JTextPane txtDD;
     private javax.swing.JTextField txtGiaBan;
     private javax.swing.JTextField txtGiaNhap;
-    private javax.swing.JTextField txtIMG;
+    private javax.swing.JLabel txtIMG;
     private javax.swing.JTextField txtMaGao;
     private javax.swing.JTextField txtSL;
     private javax.swing.JTextField txtTim;

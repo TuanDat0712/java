@@ -12,6 +12,8 @@ import QL_BanGao.view.HoaDonBanJPanel;
 import QL_BanGao.view.HoaDonNhap;
 import QL_BanGao.view.NhaCungCapJPanel;
 import QL_BanGao.view.NhanVienJPanel;
+import QL_BanGao.view.QLHoaDonBanJPanel;
+import QL_BanGao.view.QLHoaDonNhapJPanel;
 import QL_BanGao.view.TaiKhoanJPanel;
 import QL_BanGao.view.ThongKeJPanel;
 import java.awt.event.MouseEvent;
@@ -86,7 +88,12 @@ public class MenuController {
                 case "ThongKe":
                     node = new ThongKeJPanel();
                     break;
-                // more
+                case "HoaDonBan":
+                    node = new QLHoaDonBanJPanel();
+                    break;
+                case "HoaDonNhap":
+                    node = new QLHoaDonNhapJPanel();
+                    break;
                 default:
                     node = new TrangChuJPanel();
                     break;
@@ -121,6 +128,14 @@ public class MenuController {
                 jlbItem.setBackground(new Color(128, 215, 255));
           }
       }
+
+        private JPanel QL_HoaDonBan() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        private JPanel QL_HoaDonNhap() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
     }
     private void setChangeBackground(String kind){
         for (Menu item : listItem) {

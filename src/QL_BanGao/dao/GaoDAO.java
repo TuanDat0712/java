@@ -99,6 +99,38 @@ public class GaoDAO {
     
     return listG;
 }
+    public ArrayList<Gao> findGByMaLG(String MaLG) {
+    ArrayList<Gao> listG = new ArrayList<>();
+    String sql = "{CALL FindLoaiGaoByLoaiGao(?)}";
+    con.open();
+    try {
+        CallableStatement stmt = con.getConnection().prepareCall(sql);
+        stmt.setString(1, MaLG);
+        try (ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                Gao k = new Gao();
+                k.setMAG(rs.getString("MAG"));
+                k.setMALG(rs.getString("MALG"));
+                k.setMaNCC(rs.getString("MANCC"));
+                k.setGiaBan(rs.getFloat("GiaBan"));
+                k.setGiaNhap(rs.getFloat("GiaNhap"));
+                k.setMota(rs.getString("MoTa"));
+                k.setSoLuong(rs.getInt("SoLuong"));
+                k.setLinkImage(rs.getString("LinkImage"));
+                listG.add(k);
+            }
+        }
+    } catch (SQLException e) {
+        // Log or handle the exception
+        e.printStackTrace();
+    } finally {
+        // Close the connection in the finally block to ensure it always happens
+        con.close();
+    }
+
+    return listG;
+}
+
     public String phatsinhMaG()
     {
        String mag="";
@@ -175,4 +207,35 @@ public class GaoDAO {
         con.close();
         return result;
     }
+     
+    public Gao findOneG(String MaG) {
+    Gao g = null; 
+    String sql = "{CALL TimGao(?)}";
+    con.open();
+    try {
+        CallableStatement stmt = con.getConnection().prepareCall(sql);
+        stmt.setString(1, MaG);
+        try (ResultSet rs = stmt.executeQuery()) {
+            if (rs.next()) { 
+                g = new Gao(); 
+                g.setMAG(rs.getString("MAG"));
+                g.setMALG(rs.getString("MALG"));
+                g.setMaNCC(rs.getString("MANCC"));
+                g.setGiaBan(rs.getFloat("GiaBan"));
+                g.setGiaNhap(rs.getFloat("GiaNhap"));
+                g.setMota(rs.getString("MoTa"));
+                g.setSoLuong(rs.getInt("SoLuong"));
+                g.setLinkImage(rs.getString("LinkImage"));
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        con.close(); 
+    }
+
+    return g;
+}
+     
+        
 }

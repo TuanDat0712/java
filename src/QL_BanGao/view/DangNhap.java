@@ -123,12 +123,12 @@ public class DangNhap extends javax.swing.JFrame {
         TaiKhoan tk1= tk.dangNhap(txtName.getText(),txtPass.getText());
         if (tk1==null)
         {
-            JOptionPane.showMessageDialog(null, "Dang nhap that bai");
+            JOptionPane.showMessageDialog(null, "Đăng nhập thất bại");
 
         }
         else
-        {  JOptionPane.showMessageDialog(null, "Dang nhap thanh cong");
-            MainJFrame show = new  MainJFrame();
+        {  JOptionPane.showMessageDialog(null, "Đăng Nhập thành công");
+            MainJFrame show = new  MainJFrame(tk1);
             show.setVisible(true);
         }
     }//GEN-LAST:event_btnDangNhapActionPerformed

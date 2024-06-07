@@ -26,6 +26,10 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
         initComponents();
         tatBTN();
         showNhaCungCap(tblNhaCungCap);
+        lblLoiHoTen.setText("");
+        lblLoiSDT.setText("");
+        lblLoiDiaChi.setText("");
+        lblLoiEmail.setText("");
     }
 
     /**
@@ -59,6 +63,10 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblNhaCungCap = new javax.swing.JTable();
         btnTaiLai = new javax.swing.JButton();
+        lblLoiHoTen = new javax.swing.JLabel();
+        lblLoiDiaChi = new javax.swing.JLabel();
+        lblLoiSDT = new javax.swing.JLabel();
+        lblLoiEmail = new javax.swing.JLabel();
 
         jLabel6.setText("Nhập SDT:");
 
@@ -85,18 +93,56 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
 
         jLabel3.setText("SĐT:");
 
+        txtSDT.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSDTFocusLost(evt);
+            }
+        });
+        txtSDT.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSDTKeyPressed(evt);
+            }
+        });
+
         jLabel2.setText("Họ tên:");
         jLabel2.setMaximumSize(new java.awt.Dimension(85, 16));
         jLabel2.setMinimumSize(new java.awt.Dimension(85, 16));
         jLabel2.setPreferredSize(new java.awt.Dimension(85, 16));
 
+        txtHoTen.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtHoTenFocusLost(evt);
+            }
+        });
+        txtHoTen.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtHoTenKeyPressed(evt);
+            }
+        });
+
         jLabel5.setText("Email:");
+
+        txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtEmailFocusLost(evt);
+            }
+        });
 
         jLabel4.setText("Địa chỉ:");
 
+        txtDiaChi.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDiaChiFocusLost(evt);
+            }
+        });
         txtDiaChi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDiaChiActionPerformed(evt);
+            }
+        });
+        txtDiaChi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtDiaChiKeyPressed(evt);
             }
         });
 
@@ -129,6 +175,11 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
         });
 
         btnThoat.setText("Thoát");
+        btnThoat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThoatActionPerformed(evt);
+            }
+        });
 
         tblNhaCungCap.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -141,6 +192,11 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblNhaCungCap.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblNhaCungCapMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblNhaCungCap);
 
         btnTaiLai.setText("Tải lại");
@@ -150,10 +206,56 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblLoiHoTen.setForeground(new java.awt.Color(204, 0, 51));
+        lblLoiHoTen.setText("jLabel9");
+
+        lblLoiDiaChi.setForeground(new java.awt.Color(204, 0, 51));
+        lblLoiDiaChi.setText("jLabel10");
+
+        lblLoiSDT.setForeground(new java.awt.Color(204, 0, 51));
+        lblLoiSDT.setText("jLabel11");
+
+        lblLoiEmail.setForeground(new java.awt.Color(204, 0, 51));
+        lblLoiEmail.setText("jLabel12");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, 0)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnLuu)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(91, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(125, 125, 125)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmail)
+                                    .addComponent(txtSDT)
+                                    .addComponent(lblLoiSDT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblLoiEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap())))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -167,46 +269,16 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
                     .addComponent(txtDiaChi, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lblLoiHoTen, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtTimSDT, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
                             .addComponent(txtHoTen, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtMaNCC, javax.swing.GroupLayout.Alignment.LEADING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnTim)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnTaiLai)))
-                .addGap(0, 87, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnLuu)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(90, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(125, 125, 125)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtEmail)
-                                    .addComponent(txtSDT))
-                                .addContainerGap())))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)))
+                        .addComponent(btnTaiLai))
+                    .addComponent(lblLoiDiaChi, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,6 +295,8 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel3)
                     .addComponent(txtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblLoiSDT)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtHoTen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -230,9 +304,15 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblLoiHoTen)
+                    .addComponent(lblLoiEmail))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtDiaChi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblLoiDiaChi)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -441,12 +521,15 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-            btnSua.setEnabled(false);
-            btnXoa.setEnabled(false);
-            btnLuu.setEnabled(true);
-            btnThoat.setEnabled(true);
-            flag = 1;
-            batTXT();    
+        String t = nccdao.phatsinhMaNCC();
+        txtMaNCC.setText(t);
+        txtMaNCC.setEnabled(false);
+        btnSua.setEnabled(false);
+        btnXoa.setEnabled(false);
+        btnLuu.setEnabled(true);
+        btnThoat.setEnabled(true);
+        flag = 1;
+        batTXT();  
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
@@ -486,13 +569,12 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
 
     private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
         // TODO add your handling code here:
-         if(flag == 1)
-             {        
-                 them();
-                 btnThem.setEnabled(true);
-                 btnXoa.setEnabled(true);
-             }
-             else
+         if(flag == 1){        
+            them();
+            btnThem.setEnabled(true);
+            btnXoa.setEnabled(true);
+            }
+            else
              {
                 updateKH();
              }
@@ -523,6 +605,97 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTimSDTActionPerformed
 
+    private void txtSDTFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSDTFocusLost
+        // TODO add your handling code here:
+        String soDienThoai = txtSDT.getText().trim();
+        if (!ktraSDT(soDienThoai)) {
+            lblLoiSDT.setText("Sai định dạng số điện thoại");
+        } else {
+            lblLoiSDT.setText("");
+        }   
+    }//GEN-LAST:event_txtSDTFocusLost
+
+    private void tblNhaCungCapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblNhaCungCapMouseClicked
+        // TODO add your handling code here:
+        ArrayList<NhaCungCap> n = nccdao.getListNCC();
+        int vt = tblNhaCungCap.getSelectedRow();
+        if(vt != -1)
+        {
+            ncc = n.get(vt);
+            txtDiaChi.setText(ncc.getDiaChi());
+            txtEmail.setText(ncc.getEmail());
+            txtHoTen.setText(ncc.getTenNCC());
+            txtSDT.setText(ncc.getSDT());
+            txtMaNCC.setText(ncc.getMaNCC());
+        }       
+    }//GEN-LAST:event_tblNhaCungCapMouseClicked
+
+    private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed
+        // TODO add your handling code here:
+        int response = JOptionPane.showConfirmDialog(null,"Bạn có chắc chắn muốn thoát?", "Xác nhận thoát", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+        if (response == JOptionPane.YES_OPTION) {
+            clearTXT();
+            tatBTN();
+            btnXoa.setEnabled(true);
+            btnSua.setEnabled(true);
+            btnThem.setEnabled(true);
+            tblNhaCungCap.setRowSelectionAllowed(true);
+            tblNhaCungCap.setColumnSelectionAllowed(true);
+        } else if (response == JOptionPane.NO_OPTION) {
+        }
+    }//GEN-LAST:event_btnThoatActionPerformed
+
+    private void txtHoTenKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHoTenKeyPressed
+        // TODO add your handling code here:
+//        String hoTen = txtHoTen.getText().trim();
+//        if (hoTen.isEmpty()) {
+//            lblLoiHoTen.setText("Tên không được để trống");
+//        } else {
+//            lblLoiHoTen.setText("");
+//        }     
+    }//GEN-LAST:event_txtHoTenKeyPressed
+
+    private void txtSDTKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSDTKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSDTKeyPressed
+
+    private void txtDiaChiKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDiaChiKeyPressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtDiaChiKeyPressed
+
+    private void txtHoTenFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtHoTenFocusLost
+        // TODO add your handling code here:
+        String hoTen = txtHoTen.getText().trim();
+        if (hoTen.isEmpty()) {
+            lblLoiHoTen.setText("Tên không được để trống");
+        } else {
+            lblLoiHoTen.setText("");
+        }    
+    }//GEN-LAST:event_txtHoTenFocusLost
+
+    private void txtDiaChiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDiaChiFocusLost
+        // TODO add your handling code here:
+        String diachi = txtDiaChi.getText().trim();
+        if (diachi.isEmpty()) {
+            lblLoiDiaChi.setText("Tên không được để trống");
+        } else {
+            lblLoiDiaChi.setText("");
+        }    
+    }//GEN-LAST:event_txtDiaChiFocusLost
+
+    private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
+        // TODO add your handling code here:
+        String email = txtEmail.getText().trim();
+        if (!ktraSDT(email)) {
+            lblLoiEmail.setText("Sai định dạng email!");
+        } else {
+            lblLoiEmail.setText("");
+        }   
+        
+    }//GEN-LAST:event_txtEmailFocusLost
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLuu;
     private javax.swing.JButton btnSua;
@@ -539,6 +712,10 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblLoiDiaChi;
+    private javax.swing.JLabel lblLoiEmail;
+    private javax.swing.JLabel lblLoiHoTen;
+    private javax.swing.JLabel lblLoiSDT;
     private javax.swing.JTable tblNhaCungCap;
     private javax.swing.JTextField txtDiaChi;
     private javax.swing.JTextField txtEmail;

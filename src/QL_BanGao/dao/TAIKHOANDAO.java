@@ -56,8 +56,6 @@ public class TAIKHOANDAO {
             String sql = "{CALL ThemTaiKhoan(?, ?, ?, ?, ?)}";
             CallableStatement stmt;
             stmt = con.getConnection().prepareCall(sql);
-            
-            // Truyền giá trị cho các tham số
             stmt.setString(1, x.getTenTK());
             stmt.setString(2, x.getMatKhau());
             stmt.setString(3, x.getMaNV());
@@ -77,11 +75,10 @@ public class TAIKHOANDAO {
     public ArrayList<TaiKhoan> getListTaiKhoan() {
     ArrayList<TaiKhoan> listTaiKhoan = new ArrayList<>();
     try {
-        con.open(); // Mở kết nối tới cơ sở dữ liệu
-        CallableStatement stmt = con.getConnection().prepareCall("{CALL GetTaiKhoans}"); // Gọi procedure GetTaiKhoans
-        ResultSet rs = stmt.executeQuery(); // Thực hiện truy vấn và nhận kết quả
-        
-        // Duyệt qua kết quả trả về và thêm từng tài khoản vào danh sách
+        con.open(); 
+        CallableStatement stmt = con.getConnection().prepareCall("{CALL GetTaiKhoans}"); 
+        ResultSet rs = stmt.executeQuery(); 
+       
         while (rs.next()) {
             TaiKhoan tk = new TaiKhoan();
             tk.setTenTK(rs.getString("TenTk"));
@@ -90,11 +87,11 @@ public class TAIKHOANDAO {
             tk.setCapQuyen(rs.getInt("CapQuyen"));
             listTaiKhoan.add(tk);
         }
-        rs.close(); // Đóng ResultSet
+        rs.close(); 
     } catch (SQLException e) {
-        e.printStackTrace(); // In ra lỗi nếu có
+        e.printStackTrace(); 
     } finally {
-        con.close(); // Đóng kết nối sau khi hoàn thành
+        con.close(); 
     }
     return listTaiKhoan;
     }
@@ -136,5 +133,5 @@ public class TAIKHOANDAO {
     }
     return result;
     }
-     
+    
 }

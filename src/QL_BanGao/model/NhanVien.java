@@ -5,6 +5,8 @@
  */
 package QL_BanGao.model;
 
+import java.util.Date;
+
 /**
  *
  * @author ADMIN
@@ -13,18 +15,15 @@ public class NhanVien {
     
     String MaNV;
     String TenNV;
-    String NgaySinh;
+    Date NgaySinh;
     String DiaChi;
     String GioiTinh;
-    String NgayVaoLam;
+    Date NgayVaoLam;
     int Luong;
     String ChucVu;
     String CCCD;
     String SDT;
-    String Email;
-
-    public NhanVien() {
-    }
+    String Email;  
 
     public String getMaNV() {
         return MaNV;
@@ -42,11 +41,11 @@ public class NhanVien {
         this.TenNV = TenNV;
     }
 
-    public String getNgaySinh() {
+    public Date getNgaySinh() {
         return NgaySinh;
     }
 
-    public void setNgaySinh(String NgaySinh) {
+    public void setNgaySinh(Date NgaySinh) {
         this.NgaySinh = NgaySinh;
     }
 
@@ -66,11 +65,11 @@ public class NhanVien {
         this.GioiTinh = GioiTinh;
     }
 
-    public String getNgayVaoLam() {
+    public Date getNgayVaoLam() {
         return NgayVaoLam;
     }
 
-    public void setNgayVaoLam(String NgayVaoLam) {
+    public void setNgayVaoLam(Date NgayVaoLam) {
         this.NgayVaoLam = NgayVaoLam;
     }
 
@@ -114,7 +113,7 @@ public class NhanVien {
         this.Email = Email;
     }
 
-    public NhanVien(String MaNV, String TenNV, String NgaySinh, String DiaChi, String GioiTinh, String NgayVaoLam, int Luong, String ChucVu, String CCCD, String SDT, String Email) {
+    public NhanVien(String MaNV, String TenNV, Date NgaySinh, String DiaChi, String GioiTinh, Date NgayVaoLam, int Luong, String ChucVu, String CCCD, String SDT, String Email) {
         this.MaNV = MaNV;
         this.TenNV = TenNV;
         this.NgaySinh = NgaySinh;
@@ -127,5 +126,7 @@ public class NhanVien {
         this.SDT = SDT;
         this.Email = Email;
     }
-    
+
+    public NhanVien() {
+    }
 }

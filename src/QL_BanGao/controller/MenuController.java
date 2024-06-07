@@ -6,6 +6,7 @@ import java.awt.BorderLayout;
 import QL_BanGao.view.TrangChuJPanel;
 import QL_BanGao.view.KhachHangJPanel;
 import QL_BanGao.bean.Menu;
+import QL_BanGao.model.TaiKhoan;
 import QL_BanGao.view.GaoJPanel;
 import QL_BanGao.view.HoaDonBanJPanel;
 import QL_BanGao.view.HoaDonNhap;
@@ -18,6 +19,7 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 public class MenuController {
+    public TaiKhoan TK;
     private JPanel root;
     private String kindSelected = "";
     private List<Menu> listItem = null;
@@ -115,8 +117,8 @@ public class MenuController {
       @Override
       public void mouseExited(MouseEvent e) {
           if (!kindSelected.equalsIgnoreCase(kind)) {
-                jpnItem.setBackground(new Color(225, 225, 234));
-                jlbItem.setBackground(new Color(225, 225, 234));
+                jpnItem.setBackground(new Color(128, 215, 255));
+                jlbItem.setBackground(new Color(128, 215, 255));
           }
       }
     }

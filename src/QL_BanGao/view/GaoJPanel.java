@@ -237,6 +237,12 @@ public class GaoJPanel extends javax.swing.JPanel {
 
         jScrollPane1.setViewportView(txtDD);
 
+        cbMaLG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbMaLGActionPerformed(evt);
+            }
+        });
+
         txtIMG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIMGActionPerformed(evt);
@@ -567,6 +573,10 @@ public class GaoJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         showGao();
     }//GEN-LAST:event_btn_ReloadActionPerformed
+
+    private void cbMaLGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMaLGActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbMaLGActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

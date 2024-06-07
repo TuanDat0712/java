@@ -25,11 +25,9 @@ public class NhaCungCapDAO {
         try {
             
             con.open();
-            String sql = "{CALL themNhaCungCap(?, ?, ?, ?,?)}";
+            String sql = "{CALL ThemNhaCungCap(?, ?, ?, ?,?)}";
             CallableStatement stmt;
             stmt = con.getConnection().prepareCall(sql);
-            
-            // Truyền giá trị cho các tham số
             stmt.setString(1, x.getMaNCC());
             stmt.setString(2, x.getTenNCC());
             stmt.setString(3, x.getDiaChi());
@@ -99,8 +97,8 @@ public class NhaCungCapDAO {
         try (ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 NhaCungCap k = new NhaCungCap();
-                k.setMaNCC(rs.getString("MaKH"));
-                k.setTenNCC(rs.getString("TenKH"));
+                k.setMaNCC(rs.getString("MaNCC"));
+                k.setTenNCC(rs.getString("TenNCC"));
                 k.setDiaChi(rs.getString("DiaChi"));
                 k.setSDT(rs.getString("SDT"));
                 k.setEmail(rs.getString("Email"));
@@ -116,11 +114,9 @@ public class NhaCungCapDAO {
     public ArrayList<NhaCungCap> getListNCC() {
     ArrayList<NhaCungCap> listNCC = new ArrayList<>();
     try {
-        con.open(); // Mở kết nối tới cơ sở dữ liệu
-        CallableStatement stmt = con.getConnection().prepareCall("{CALL GetNhaCungCap}"); // Gọi procedure GetNhaCungCap
-        ResultSet rs = stmt.executeQuery(); // Thực hiện truy vấn và nhận kết quả
-        
-        // Duyệt qua kết quả trả về và thêm từng nhà cung cấp vào danh sách
+        con.open(); 
+        CallableStatement stmt = con.getConnection().prepareCall("{CALL GetNhaCungCap}"); 
+        ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
             NhaCungCap ncc = new NhaCungCap();
             ncc.setMaNCC(rs.getString("MaNCC"));
@@ -138,5 +134,33 @@ public class NhaCungCapDAO {
     }
     return listNCC;
 }
-    
+    public String phatsinhMaNCC() {
+    String mancc = "";
+    con.open();
+    if (con != null) {
+        String sql = "{CALL GetMaNCC()}";
+        try (CallableStatement stmt = con.getConnection().prepareCall(sql)) {
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                String ma = rs.getString("MaNCC");
+                String so = ma.substring(3);
+                try {
+                    int soInt = Integer.parseInt(so);
+                    if (soInt >= 0 && soInt <= 9)
+                        mancc = "NCC" + "00" + (soInt + 1);
+                    else if (soInt >= 10 && soInt <= 99)
+                        mancc = "NCC" + "0" + (soInt + 1);
+                    else
+                        mancc = "NCC" + (soInt + 1);
+                } catch (NumberFormatException e) {
+                }
+            }
+        } catch (SQLException ex) {
+        } finally {
+            con.close();
+        }
+    }
+    return mancc;
+}
+
 }

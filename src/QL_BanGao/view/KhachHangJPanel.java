@@ -498,7 +498,7 @@ public class KhachHangJPanel extends javax.swing.JPanel {
 
     private void JtKhachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtKhachHangMouseClicked
         // TODO add your handling code here:
-         ArrayList<KhachHang> temptKH = kh.getListKH();
+        ArrayList<KhachHang> temptKH = kh.getListKH();
         int vt = JtKhachHang.getSelectedRow();
         if(vt != -1)
         {

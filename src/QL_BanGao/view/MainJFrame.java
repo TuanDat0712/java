@@ -2,18 +2,19 @@ package QL_BanGao.view;
 
 import QL_BanGao.bean.Menu;
 import QL_BanGao.controller.MenuController;
+import QL_BanGao.model.TaiKhoan;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainJFrame extends javax.swing.JFrame {
-
-    public MainJFrame() {
+    public TaiKhoan TK;
+    public MainJFrame(TaiKhoan tk) {
         initComponents();
+        TK = tk;
+        lblNhanVien.setText(tk.getTenTK());
         setTitle("QUẢN LÝ BÁN GẠO");
-        
         MenuController controller = new MenuController(jpnView);
         controller.setView(jpnTrangChu,jlbTrangChu);
-        
         List<Menu>listItem = new ArrayList<>();
         listItem.add(new Menu("TrangChu", jpnTrangChu, jlbTrangChu));
         listItem.add(new Menu("Gao", jpnGao, jlbGao));
@@ -26,7 +27,12 @@ public class MainJFrame extends javax.swing.JFrame {
         listItem.add(new Menu("ThongKe", jpnThongKe, jlbThongKe));
         controller.setEvent(listItem);
     }
-
+    public String getTenTK(TaiKhoan tk)
+    {
+        TK = tk;
+        String m = tk.getTenTK();
+        return m;
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -35,7 +41,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jpnRoot = new javax.swing.JPanel();
         jpnMenu = new javax.swing.JPanel();
         jpnNhom = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblNhanVien = new javax.swing.JLabel();
         jpnTrangChu = new javax.swing.JPanel();
         jlbTrangChu = new javax.swing.JLabel();
         jpnGao = new javax.swing.JPanel();
@@ -71,9 +77,9 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jpnRoot.setBackground(new java.awt.Color(230, 247, 255));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("NHÓM 02");
+        lblNhanVien.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lblNhanVien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNhanVien.setText("NHÓM 02");
 
         javax.swing.GroupLayout jpnNhomLayout = new javax.swing.GroupLayout(jpnNhom);
         jpnNhom.setLayout(jpnNhomLayout);
@@ -81,14 +87,14 @@ public class MainJFrame extends javax.swing.JFrame {
             jpnNhomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnNhomLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         jpnNhomLayout.setVerticalGroup(
             jpnNhomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnNhomLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jLabel1)
+                .addComponent(lblNhanVien)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -366,7 +372,7 @@ public class MainJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jpnRoot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 9, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -382,7 +388,6 @@ public class MainJFrame extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JLabel jlbGao;
     private javax.swing.JLabel jlbHoaDon;
@@ -406,5 +411,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jpnThongKe;
     private javax.swing.JPanel jpnTrangChu;
     private javax.swing.JPanel jpnView;
+    private javax.swing.JLabel lblNhanVien;
     // End of variables declaration//GEN-END:variables
 }
